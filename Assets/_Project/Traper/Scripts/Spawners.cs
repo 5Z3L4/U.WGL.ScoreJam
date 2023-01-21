@@ -45,7 +45,7 @@ public class Spawners : MonoBehaviour
             }
             else
             {
-                GameObject playerClone = Instantiate(_playerPrefab, _playerSpawner);
+                GameObject playerClone = Instantiate(_playerPrefab, _playerSpawner); 
                 PlayerRespawned?.Invoke();
 
                 _cameraVM.GetComponent<CameraController>().AttatchPlayer();

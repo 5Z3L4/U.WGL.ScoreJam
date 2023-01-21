@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     public bool gameStart;
 
     private GameObject[] enemies;
-
     private void Awake()
     {
         MakeSingleton();
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ResetGameStatus();
-        gameStart = true;
+        gameStart = true; 
     }
 
 

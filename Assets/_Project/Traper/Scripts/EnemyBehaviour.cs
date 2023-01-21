@@ -11,9 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float _respawnTime = 5f;
 
     private Rigidbody2D _rb;
-    private Transform _playerTarget;
     private Vector2 _movement;
     private BoxCollider2D _collider;
+    private Transform _playerTarget;
 
     private void Start()
     {

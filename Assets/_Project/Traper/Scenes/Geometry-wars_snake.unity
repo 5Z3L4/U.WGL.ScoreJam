@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2c430ff0aae1b498d2003efcafe770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnerManager: {fileID: 0}
+  _spawnerManager: {fileID: 813989442}
   score: 0
   lives: 4
   aliveEnemies: 0
