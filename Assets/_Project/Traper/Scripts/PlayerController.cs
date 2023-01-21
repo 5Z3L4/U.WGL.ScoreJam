@@ -67,4 +67,27 @@ public class PlayerController : MonoBehaviour
             _rb.rotation = Mathf.Lerp(_rb.rotation, _moveAngle, rotationInterpolation);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if ((coll.gameObject.tag == "Enemy"))
+        {
+            GameManager.instance.lives -= 1;
+            GameManager.instance.isDead = true;
+            GameManager.instance.DestroyAllEnemies();
+
+            DestroyPlayer();
+        }
+    }
+
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject);
+ 
+        if (GameManager.instance.lives <= 0)
+        {
+            GameManager.instance.gameOver = true;
+            GameManager.instance.gameStart = false;
+        }
+    }
 }

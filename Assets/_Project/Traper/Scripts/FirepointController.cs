@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirepointController : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    private Vector3 mousePos;
+    private Vector3 _mousePos;
 
     private void Start()
     {
@@ -14,9 +14,9 @@ public class FirepointController : MonoBehaviour
 
     private void Update()
     {
-        mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = mousePos - transform.position;
+        Vector3 rotation = _mousePos - transform.position;
 
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 

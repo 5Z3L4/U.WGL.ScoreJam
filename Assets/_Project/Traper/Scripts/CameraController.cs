@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     private CinemachineVirtualCamera _vcam;
     private CinemachineFramingTransposer _vcamBody;
-    private Transform player;
+    private Transform _player;
 
     private void Start()
     {
@@ -36,9 +36,9 @@ public class CameraController : MonoBehaviour
         _vcamBody.m_XDamping = 1f;
         _vcamBody.m_YDamping = 1f;
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        _vcam.Follow = player;
+        _vcam.Follow = _player;
     }
 
     private void DetachPlayer()

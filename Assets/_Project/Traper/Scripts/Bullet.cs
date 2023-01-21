@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private Rigidbody2D _rb;
 
+    public int enemyScore = 100;
+
     private void Start()
     {
         _rb.velocity = transform.right * _bulletSpeed;
@@ -17,6 +19,15 @@ public class Bullet : MonoBehaviour
     {
         if (!coll.CompareTag("Player"))
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.collider.tag == "Enemy")
+        {
+            GameManager.instance.score += enemyScore;
             Destroy(gameObject);
         }
     }

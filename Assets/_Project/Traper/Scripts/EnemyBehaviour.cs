@@ -40,8 +40,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void MoveEnemy(Vector2 direction)
     {
-        if (!_isRespawning)
+        if (!_isRespawning && _playerTarget != null)
         {
+            _rb.MovePosition((Vector2)transform.position + (direction * _speed * Time.deltaTime));
+        }
+        else
+        {
+            direction = new Vector3(0, 0, 0);
             _rb.MovePosition((Vector2)transform.position + (direction * _speed * Time.deltaTime));
         }
     }
