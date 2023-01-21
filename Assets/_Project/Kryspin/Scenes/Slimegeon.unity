@@ -199,9 +199,9 @@ MonoBehaviour:
     m_Bits: 8
   _jumpPower: 10
   _speed: 6
-  _acceleration: 2
-  _deceleration: 2
-  _velPower: 2
+  _acceleration: 4
+  _deceleration: 3
+  _velPower: 1
   _coyoteTime: 0.3
 --- !u!114 &19609099
 MonoBehaviour:
