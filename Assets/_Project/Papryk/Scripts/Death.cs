@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    [SerializeField] private GameObject _deathCanvas;
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Finish"))
         {
-            print("Dead");
+            _deathCanvas.SetActive(true);
+            Time.timeScale = 0;
+            Destroy(gameObject);
         }
     }
 }
