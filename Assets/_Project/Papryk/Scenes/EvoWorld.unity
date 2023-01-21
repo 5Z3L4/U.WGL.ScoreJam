@@ -522,8 +522,8 @@ MonoBehaviour:
     m_Bits: 8
   _jumpVelocity: 9
   _fallMultiplier: 3
-  _bonusGravity: 14
-  _rayLength: 0.05
+  _bonusGravityOnJump: 14
+  _groundDetectionRayLength: 0.05
   _jumpBufferTime: 0.2
   _gm: {fileID: 85779321}
 --- !u!50 &91452267
