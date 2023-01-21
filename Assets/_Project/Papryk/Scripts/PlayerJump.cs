@@ -46,7 +46,7 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            GroundPlayer();
+            GroundThePlayer();
             if (!_isRewarded)
             {
                 RewardPlayer();
@@ -92,7 +92,7 @@ public class PlayerJump : MonoBehaviour
         _isRewarded = true;
     }
 
-    private void GroundPlayer()
+    private void GroundThePlayer()
     {
         Vector2 rayStart = (Vector2)transform.position + Vector2.down * (_playerSize.y * 0.5f);
         _isGrounded = Physics2D.Raycast(rayStart, Vector2.down, _groundDetectionRayLength, _groundMask);
