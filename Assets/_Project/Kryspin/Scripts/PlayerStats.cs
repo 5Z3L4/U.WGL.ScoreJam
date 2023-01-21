@@ -1,13 +1,30 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-     public int Size { get; set; } = 1;
+     private int _size = 1;
 
-     public void IncreaseSize()
+     private void OnEnable()
      {
-          Vector3 localScale = transform.localScale * 1.1f;
+          GameManager.ScoreIncreased += IncreaseSize;
+     }
+
+     private void OnDisable()
+     {
+          GameManager.ScoreIncreased -= IncreaseSize;
+     }
+
+     public int GetSize()
+     {
+          return _size;
+     }
+
+     private void IncreaseSize()
+     {
+          _size++;
+          Vector3 localScale = transform.localScale * 1.05f;
           transform.localScale = localScale;
      }
 }
