@@ -4,7 +4,6 @@ public class SpawnFood : MonoBehaviour
 {
     [SerializeField] private GameObject _foodPrefab;
     [SerializeField] private GameObject _planetObject;
-    [SerializeField] private Transform _spawnTransform;
     [SerializeField]private float _minTimeDelay = 0.5f;
     [SerializeField]private float _maxTimeDelay = 2f;
 
@@ -16,9 +15,7 @@ public class SpawnFood : MonoBehaviour
 
         if (_timer < 0)
         {
-            GameObject food = Instantiate(_foodPrefab, _planetObject.transform);
-            food.transform.position = _spawnTransform.position;
-            food.transform.rotation = Quaternion.Euler(0, 0, _spawnTransform.rotation.z - 45);
+            Instantiate(_foodPrefab, _planetObject.transform);
             _timer = Random.Range(_minTimeDelay, _maxTimeDelay);
         }
     }
