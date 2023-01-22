@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FoodObject : MonoBehaviour
+public class ObjectToDestroy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
