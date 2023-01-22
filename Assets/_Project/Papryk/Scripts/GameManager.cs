@@ -1,10 +1,12 @@
 using System;
+using LootLocker.Requests;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static event Action ScoreChanged;
-    public static float Score;
+    public static int Score;
 
     public void ResetScore()
     {
@@ -16,4 +18,5 @@ public class GameManager : MonoBehaviour
         Score += 1;
         ScoreChanged?.Invoke();
     }
+    
 }
