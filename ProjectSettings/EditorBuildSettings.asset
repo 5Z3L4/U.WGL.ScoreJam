@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/Papryk/Scenes/Login.unity
+    guid: d03c5a679e1fd6546b652bb2b0569d76
+  - enabled: 1
     path: Assets/_Project/Papryk/Scenes/EvoWorld.unity
     guid: 5df7ac9ee0dbf3246a4b11981e9c0425
   m_configObjects: {}

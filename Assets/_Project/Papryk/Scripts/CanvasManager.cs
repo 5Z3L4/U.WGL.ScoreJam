@@ -18,12 +18,12 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.ScoreIncreased += On_ScoreIncreased;
+        GameManager.ScoreChanged += On_ScoreIncreased;
     }
 
     private void OnDisable()
     {
-        GameManager.ScoreIncreased -= On_ScoreIncreased;
+        GameManager.ScoreChanged -= On_ScoreIncreased;
     }
 
     private void On_ScoreIncreased()
