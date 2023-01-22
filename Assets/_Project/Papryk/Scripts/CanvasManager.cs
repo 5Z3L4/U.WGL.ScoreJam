@@ -9,6 +9,12 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _deathScreenScore;
+    private Sequence _scoreTextSequence;
+
+    private void Start()
+    {
+        _scoreTextSequence = DOTween.Sequence();
+    }
 
     private void OnEnable()
     {
@@ -25,6 +31,9 @@ public class CanvasManager : MonoBehaviour
         float currentScore = GameManager.Score;
         _scoreText.text = currentScore.ToString();
         _deathScreenScore.text = $"YOUR SCORE: {currentScore.ToString()}";
-        _scoreText.transform.DOPunchScale(new Vector3(0.2f,0.2f,0f), 0.5f, 1, 0).OnComplete(()=> _scoreText.transform.DOScale(Vector3.one, 0.1f));
+        var sequence = DOTween.Sequence()
+            .Append(_scoreText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
+            .Append(_scoreText.transform.DOScale(1, .1f));
+        sequence.Play();
     }
 }
