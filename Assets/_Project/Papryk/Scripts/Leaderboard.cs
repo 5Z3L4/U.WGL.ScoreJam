@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using LootLocker.Requests;
 using UnityEngine;
 
-public class Leaderboard : Singleton<Leaderboard>
+public class Leaderboard : MonoBehaviour
 {
     [SerializeField] private List<ScoreData> _top10Scores = new List<ScoreData>();
     [SerializeField] private ScoreData _userBestScore = new ScoreData();
