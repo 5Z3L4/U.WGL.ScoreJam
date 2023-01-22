@@ -13,7 +13,6 @@ public class PlayerJump : MonoBehaviour
     private float _jumpBufferCounter;
     
     private bool _isGrounded;
-    private bool _isSmashing;
     private bool _isRewarded;
     private bool IsJumpInputStored => _jumpBufferCounter > 0f;
    
@@ -22,7 +21,7 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private GameManager _gm;
 
-    public bool IsSmashing => _isSmashing;
+    public bool IsSmashing { get; private set; }
 
     private void Start()
     {
@@ -37,7 +36,7 @@ public class PlayerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsJumpInputStored && !_isGrounded && !_isSmashing)
+        if (IsJumpInputStored && !_isGrounded && !IsSmashing)
         {
             Smash();
         }
@@ -84,7 +83,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Smash()
     {
-        _isSmashing = true;
+        IsSmashing = true;
         _rb.velocity = -Vector2.up * (1.5f * _jumpVelocity);
     }
 
@@ -100,7 +99,7 @@ public class PlayerJump : MonoBehaviour
         _isGrounded = Physics2D.Raycast(rayStart, Vector2.down, _groundDetectionRayLength, _groundMask);
         if (_isGrounded)
         {
-            _isSmashing = false;
+            IsSmashing = false;
         }
     }
 

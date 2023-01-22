@@ -1015,8 +1015,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodPrefab: {fileID: 3750673747009591458, guid: 6fcaea90790f4724aa28cf9367dfe1ff, type: 3}
   _planetObject: {fileID: 1760499192}
-  _respawnTransform: {fileID: 1568407508}
-  _destroyTransform: {fileID: 1072473714}
+  _spawnTransform: {fileID: 1568407508}
+  _minTimeDelay: 0.5
+  _maxTimeDelay: 2
 --- !u!4 &833472019
 Transform:
   m_ObjectHideFlags: 0

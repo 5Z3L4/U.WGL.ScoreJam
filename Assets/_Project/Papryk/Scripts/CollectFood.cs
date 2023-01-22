@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerTrigger : MonoBehaviour
+public class CollectFood : MonoBehaviour
 {
-    [SerializeField ]private GameManager _gm;
+    [SerializeField] private GameManager _gm;
     private PlayerJump _playerJump;
 
     private void Awake()
@@ -17,7 +17,7 @@ public class PlayerTrigger : MonoBehaviour
         if (_playerJump.IsSmashing)
         {
             _gm.IncreaseScore();
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
     }
 }
