@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - DestroyArea
+  - Food
   - Obstacle
   - Destroy
   layers:
