@@ -22,6 +22,8 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private GameManager _gm;
 
+    public bool IsSmashing => _isSmashing;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -96,7 +98,10 @@ public class PlayerJump : MonoBehaviour
     {
         Vector2 rayStart = (Vector2)transform.position + Vector2.down * (_playerSize.y * 0.5f);
         _isGrounded = Physics2D.Raycast(rayStart, Vector2.down, _groundDetectionRayLength, _groundMask);
-        _isSmashing = false;
+        if (_isGrounded)
+        {
+            _isSmashing = false;
+        }
     }
 
     private void Jump()
