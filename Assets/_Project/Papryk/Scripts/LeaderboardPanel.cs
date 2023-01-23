@@ -4,7 +4,6 @@ using System.Linq;
 
 public class LeaderboardPanel : MonoBehaviour
 {
-    [SerializeField] private GameManager _gm;
     [SerializeField] private Leaderboard _leaderboardInfo;
     [SerializeField] private GameObject _rankObject;
     [SerializeField] private Transform _parent;
@@ -12,6 +11,8 @@ public class LeaderboardPanel : MonoBehaviour
     [SerializeField] private RankData _userBestScore;
 
     private List<ScoreData> _scoreDataOrderedByPlace = new();
+
+    private List<GameObject> _scores = new();
 
     private void OnEnable()
     {
@@ -33,6 +34,7 @@ public class LeaderboardPanel : MonoBehaviour
         {
             GameObject rankObject = Instantiate(_rankObject, _parent);
             rankObject.GetComponent<RankData>().DisplayRankInfo(score.Rank, score.UserName, score.Score);
+            _scores.Add(rankObject);
         }
     }
 
@@ -40,5 +42,14 @@ public class LeaderboardPanel : MonoBehaviour
     {
         ScoreData playerScore = _leaderboardInfo.UserBestScore;
         _userBestScore.DisplayRankInfo(playerScore.Rank, playerScore.UserName, playerScore.Score);
+    }
+
+    public void ClearList()
+    {
+        foreach (GameObject item in _scores)
+        {
+            Destroy(item);
+        }
+        _scores.Clear();
     }
 }
