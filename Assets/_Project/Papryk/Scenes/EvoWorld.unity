@@ -2137,7 +2137,7 @@ MonoBehaviour:
   _evolution0Obstacles:
   - {fileID: 1980867804552581020, guid: b8e55036109eb334f89ef031f72797ac, type: 3}
   _evolution1Obstacles:
-  - {fileID: 1968232566420897926, guid: 304c726fba544864ba85dec5270ec38a, type: 3}
+  - {fileID: 1980867804552581020, guid: b8e55036109eb334f89ef031f72797ac, type: 3}
   - {fileID: 4409801513866388807, guid: de0f8a9d76a470946849c1fe46b97c6d, type: 3}
   - {fileID: 6620119356390415021, guid: 29763fe1f2682aa4a8f66d5d17d9af2c, type: 3}
   _evolution2Obstacles:
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbc5f4ddcdabc04484aa27e4d44cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageLength: 5
+  _stageLength: 3.5
   _evolutionsOnStageNumbers: 050000000a0000000f000000
 --- !u!4 &910479431
 Transform:

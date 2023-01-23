@@ -37,7 +37,7 @@ public class EvolutionManager : MonoBehaviour
         Stage++;
         StageIncreased?.Invoke();
         if (_numberOfPossibleEvolutions <= 0) return;
-        
+
         if (Stage == _evolutionsOnStageNumbers[Evolution])
         {
             Evolution++;
