@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
+    public event Action LoadTop10Score;
+    public event Action LoadPlayerBestScore;
+
     [field: SerializeField] public List<ScoreData> Top10Scores { get; private set; }
     [field: SerializeField] public ScoreData UserBestScore { get; private set; }
     private int _leaderboardId = 10814;
@@ -43,6 +46,8 @@ public class Leaderboard : MonoBehaviour
             {
                 Debug.Log("successfully uploaded score");
                 done = true;
+                GetTop10Scores();
+                GetLoggedUserBestScore();
             }
             else
             {
@@ -74,6 +79,7 @@ public class Leaderboard : MonoBehaviour
                 }
 
                 Top10Scores = tempPlayers;
+                LoadTop10Score?.Invoke();
                 done = true;
             }
             else
@@ -113,6 +119,7 @@ public class Leaderboard : MonoBehaviour
                     };
                 }
 
+                LoadPlayerBestScore?.Invoke();
                 done = true;
             }
             else
