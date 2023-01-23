@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> _evolution1Obstacles;
     [SerializeField] private List<GameObject> _evolution2Obstacles;
     [SerializeField] private List<GameObject> _evolution3Obstacles;
+    [SerializeField] private GameObject _foodPrefab;
     [SerializeField] private float _startingTimeBtwObstacleSpawn;
     [SerializeField] private float _minTimeBtwObstacleSpawn;
     [SerializeField] private Transform _spawnTransform;
@@ -16,7 +17,8 @@ public class ObstacleSpawner : MonoBehaviour
     private float _timeBtwObstacleSpawn;
     private float _timer;
     private Random _rnd;
-    
+    private bool _isFoodSpawned;
+
     private void Start()
     {
         _timeBtwObstacleSpawn = _startingTimeBtwObstacleSpawn;
@@ -43,9 +45,25 @@ public class ObstacleSpawner : MonoBehaviour
         if (_timer <= 0)
         {
             SpawnNewObstacle();
+            _isFoodSpawned = false;
+        }
+        else if (_timer < _timeBtwObstacleSpawn * 0.5f)
+        {
+            if (_isFoodSpawned) return;
+            SpawnFood();
         }
     }
 
+    private void SpawnFood()
+    {
+        if (_rnd.Next(0, 2) == 1)
+        {
+            Instantiate(_foodPrefab,_obstaclesSpawnPosition, Quaternion.identity, _parent);
+        }
+
+        _isFoodSpawned = true;
+    }
+    
     private void SpawnNewObstacle()
     {
         Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);

@@ -329,7 +329,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7ed07c955905cd045bc5cea243f56dcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1289,6 +1289,7 @@ MonoBehaviour:
   - {fileID: 3785484047561117710, guid: 9e95591b5f6a427438f1de66e6a645bc, type: 3}
   - {fileID: 2446594901260704666, guid: 61b84a1ce090bf049bbe9ec09efecc10, type: 3}
   - {fileID: 1884749619959190956, guid: cd48fe1571738c8459a6c7e3fd3dcd18, type: 3}
+  _foodPrefab: {fileID: 3750673747009591458, guid: 6fcaea90790f4724aa28cf9367dfe1ff, type: 3}
   _startingTimeBtwObstacleSpawn: 2
   _minTimeBtwObstacleSpawn: 0.5
   _spawnTransform: {fileID: 1445891593}
@@ -1592,7 +1593,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991871879
 GameObject:
@@ -1751,8 +1752,8 @@ Camera:
   m_GameObject: {fileID: 1083373042}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.21813813, g: 0.2605083, b: 0.8113208, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.019607844, g: 0.019607844, b: 0.11372549, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2187,6 +2188,18 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2843793465928570157, guid: 98a5c374c3a63fc498d81a32265d5514, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843793465928570157, guid: 98a5c374c3a63fc498d81a32265d5514, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843793465928570157, guid: 98a5c374c3a63fc498d81a32265d5514, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 36.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843793465928570157, guid: 98a5c374c3a63fc498d81a32265d5514, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4a0aca3a5f2effb41b43cc0a1661d845, type: 3}
@@ -2509,76 +2522,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524414341}
   m_CullTransparentMesh: 1
---- !u!1 &1545143253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1545143254}
-  - component: {fileID: 1545143256}
-  - component: {fileID: 1545143255}
-  m_Layer: 0
-  m_Name: DestroyArea
-  m_TagString: DestroyArea
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1545143254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545143253}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 2.6, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1844174225}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1545143255
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545143253}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &1545143256
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545143253}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &1546188416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,55 +2832,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840442625}
   m_CullTransparentMesh: 1
---- !u!1 &1844174223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1844174225}
-  - component: {fileID: 1844174224}
-  m_Layer: 0
-  m_Name: FoodSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1844174224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844174223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76b00f95f7b53a42b3a661722b041c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _foodPrefab: {fileID: 3750673747009591458, guid: 6fcaea90790f4724aa28cf9367dfe1ff, type: 3}
-  _planetObject: {fileID: 1760499192}
-  _minTimeDelay: 0.5
-  _maxTimeDelay: 2
---- !u!4 &1844174225
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844174223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1545143254}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1853936737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +2889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d31bbe24779a0848ab88e0caaf82854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gm: {fileID: 0}
   _leaderboardInfo: {fileID: 979015119}
   _rankObject: {fileID: 6089678198239304013, guid: 28b6c6154d696d746a28393cb8ffe0f2, type: 3}
   _parent: {fileID: 1546188417}
