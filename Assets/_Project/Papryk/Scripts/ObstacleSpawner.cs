@@ -12,6 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> _evolution2Obstacles;
     [SerializeField] private List<GameObject> _evolution3Obstacles;
     [SerializeField] private float _startingTimeBtwObstacleSpawn;
+    [SerializeField] private float _minTimeBtwObstacleSpawn;
     [SerializeField] private Transform _spawnTransform;
     [SerializeField] private Transform _parent;
     private Vector3 _obstaclesSpawnPosition;
@@ -32,11 +33,13 @@ public class ObstacleSpawner : MonoBehaviour
     private void OnEnable()
     {
         EvolutionManager.StageIncreased += On_StageIncreased;
+        EvolutionManager.EvolutionIncreased += On_EvolutionIncreased;
     }
 
     private void OnDisable()
     {
         EvolutionManager.StageIncreased -= On_StageIncreased;
+        EvolutionManager.EvolutionIncreased -= On_EvolutionIncreased;
     }
 
     private void Update()
@@ -77,7 +80,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void On_StageIncreased()
     {
-        _timeBtwObstacleSpawn -= _timeBtwObstacleSpawn * 0.95f;
+        if (_timeBtwObstacleSpawn <= _minTimeBtwObstacleSpawn) return;
+        
+        
+        _timeBtwObstacleSpawn -= _timeBtwObstacleSpawn * 0.25f;
     }
 
+    private void On_EvolutionIncreased()
+    {
+        _timeBtwObstacleSpawn = _startingTimeBtwObstacleSpawn;
+    }
 }
