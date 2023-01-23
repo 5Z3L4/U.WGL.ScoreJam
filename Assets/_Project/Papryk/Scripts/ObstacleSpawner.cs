@@ -1,28 +1,83 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _obstacles;
-    [SerializeField] private Transform _obstaclesHolder;
+    [SerializeField] private List<GameObject> _evolution0Obstacles;
+    [SerializeField] private List<GameObject> _evolution1Obstacles;
+    [SerializeField] private List<GameObject> _evolution2Obstacles;
+    [SerializeField] private List<GameObject> _evolution3Obstacles;
+    [SerializeField] private float _startingTimeBtwObstacleSpawn;
+    [SerializeField] private Transform _spawnTransform;
+    [SerializeField] private Transform _parent;
+    private Vector3 _obstaclesSpawnPosition;
+    private float _timeBtwObstacleSpawn;
     private float _timer;
-    [SerializeField] private float _spawnTimer = 3f;
+    private Random _rnd;
+    
+    
+
+    private void Start()
+    {
+        _timeBtwObstacleSpawn = _startingTimeBtwObstacleSpawn;
+        _timer = _timeBtwObstacleSpawn;
+        _rnd = new Random();
+        _obstaclesSpawnPosition = _spawnTransform.position;
+    }
+
+    private void OnEnable()
+    {
+        EvolutionManager.StageIncreased += On_StageIncreased;
+    }
+
+    private void OnDisable()
+    {
+        EvolutionManager.StageIncreased -= On_StageIncreased;
+    }
 
     private void Update()
     {
-        _timer += Time.deltaTime;
-
-        if (_timer >= _spawnTimer)
+        _timer -= Time.deltaTime;
+        if (_timer <= 0)
         {
-            SpawnRandomObstacle();
-            _timer = 0;
+            SpawnNewObstacle();
         }
     }
 
-    private void SpawnRandomObstacle()
+    private void SpawnNewObstacle()
     {
-        Instantiate(_obstacles[Random.Range(1, _obstacles.Count)], _obstaclesHolder);
+        Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);
+        _timer = _timeBtwObstacleSpawn;
     }
+
+    private GameObject ChooseObstacleDependingOnEvolution(int evolution)
+    {
+        GameObject chosenObstacle = null;
+        switch (evolution)
+        {
+            case 0:
+                chosenObstacle = _evolution0Obstacles[_rnd.Next(_evolution0Obstacles.Count)];
+                break;
+            case 1:
+                chosenObstacle = _evolution1Obstacles[_rnd.Next(_evolution1Obstacles.Count)];
+                break;
+            case 2:
+                chosenObstacle = _evolution2Obstacles[_rnd.Next(_evolution2Obstacles.Count)];
+                break;
+            case 3:
+                chosenObstacle = _evolution3Obstacles[_rnd.Next(_evolution3Obstacles.Count)];
+                break;
+        }
+        return chosenObstacle;
+    }
+
+    private void On_StageIncreased()
+    {
+        _timeBtwObstacleSpawn -= _timeBtwObstacleSpawn * 0.95f;
+    }
+
 }
