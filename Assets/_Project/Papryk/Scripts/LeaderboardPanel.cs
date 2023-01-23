@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class LeaderboardPanel : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class LeaderboardPanel : MonoBehaviour
 
     public void OnLoadTop10Score()
     {
+        ClearList();
         _scoreDataOrderedByPlace = _leaderboardInfo.Top10Scores.OrderBy(e => e.Rank).ToList();
 
         foreach (ScoreData score in _scoreDataOrderedByPlace)
