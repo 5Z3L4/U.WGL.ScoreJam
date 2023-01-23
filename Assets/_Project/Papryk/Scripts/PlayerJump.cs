@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJump : MonoBehaviour
 {
+    private AudioSource _as;
+    [SerializeField] private AudioClip _jumpSound;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpVelocity;
     [SerializeField] private float _fallMultiplier = 2.5f;
@@ -26,8 +28,9 @@ public class PlayerJump : MonoBehaviour
 
     public bool IsSmashing { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
+        _as = GetComponent<AudioSource>();
         _rb = GetComponent<Rigidbody2D>();
         _playerSize = GetComponent<BoxCollider2D>().size;
     }
@@ -118,6 +121,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump()
     {
+        _as.PlayOneShot(_jumpSound, 1f);
         _rb.velocity = Vector2.up * _jumpVelocity;
         _isGrounded = false;
         _isRewarded = false;
