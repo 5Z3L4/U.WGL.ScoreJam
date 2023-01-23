@@ -1189,8 +1189,8 @@ MonoBehaviour:
   - {fileID: 3785484047561117710, guid: 9e95591b5f6a427438f1de66e6a645bc, type: 3}
   - {fileID: 2446594901260704666, guid: 61b84a1ce090bf049bbe9ec09efecc10, type: 3}
   - {fileID: 1884749619959190956, guid: cd48fe1571738c8459a6c7e3fd3dcd18, type: 3}
-  _startingTimeBtwObstacleSpawn: 3
-  _minTimeBtwObstacleSpawn: 1.5
+  _startingTimeBtwObstacleSpawn: 2
+  _minTimeBtwObstacleSpawn: 0.5
   _spawnTransform: {fileID: 1445891593}
   _parent: {fileID: 1760499194}
 --- !u!1 &471358950
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbc5f4ddcdabc04484aa27e4d44cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageLength: 10
+  _stageLength: 5
   _evolutionsOnStageNumbers: 050000000a0000000f000000
 --- !u!4 &910479431
 Transform:
