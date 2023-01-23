@@ -13,11 +13,18 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private float _minTimeBtwObstacleSpawn;
     [SerializeField] private Transform _spawnTransform;
     [SerializeField] private Transform _parent;
+    [SerializeField] private AudioClip _spawnSound;
     private Vector3 _obstaclesSpawnPosition;
     private float _timeBtwObstacleSpawn;
     private float _timer;
     private Random _rnd;
     private bool _isFoodSpawned;
+    private AudioSource _as;
+
+    private void Awake()
+    {
+        _as = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -45,6 +52,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (_timer <= 0)
         {
             SpawnNewObstacle();
+            _as.PlayOneShot(_spawnSound, 1f);
             _isFoodSpawned = false;
         }
         else if (_timer < _timeBtwObstacleSpawn * 0.5f)
