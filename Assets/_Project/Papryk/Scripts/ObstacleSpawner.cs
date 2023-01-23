@@ -27,14 +27,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        EvolutionManager.Instance.StageIncreased += On_StageIncreased;
-        EvolutionManager.Instance.EvolutionIncreased += On_EvolutionIncreased;
+        EvolutionManager.StageIncreased += On_StageIncreased;
+        EvolutionManager.EvolutionIncreased += On_EvolutionIncreased;
     }
 
     private void OnDisable()
     {
-        EvolutionManager.Instance.StageIncreased -= On_StageIncreased;
-        EvolutionManager.Instance.EvolutionIncreased -= On_EvolutionIncreased;
+        EvolutionManager.StageIncreased -= On_StageIncreased;
+        EvolutionManager.EvolutionIncreased -= On_EvolutionIncreased;
     }
 
     private void Update()
@@ -48,7 +48,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnNewObstacle()
     {
-        Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Instance.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);
+        Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);
         _timer = _timeBtwObstacleSpawn;
     }
 
