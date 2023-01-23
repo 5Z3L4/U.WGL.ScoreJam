@@ -57,7 +57,7 @@ public class LoginManager : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("PauseMenu");
+        SceneManager.LoadScene("EvoWorld");
     }
 
     private IEnumerator LoginRoutine()
