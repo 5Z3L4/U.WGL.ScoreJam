@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
@@ -20,8 +17,6 @@ public class ObstacleSpawner : MonoBehaviour
     private float _timer;
     private Random _rnd;
     
-    
-
     private void Start()
     {
         _timeBtwObstacleSpawn = _startingTimeBtwObstacleSpawn;
@@ -32,14 +27,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        EvolutionManager.StageIncreased += On_StageIncreased;
-        EvolutionManager.EvolutionIncreased += On_EvolutionIncreased;
+        EvolutionManager.Instance.StageIncreased += On_StageIncreased;
+        EvolutionManager.Instance.EvolutionIncreased += On_EvolutionIncreased;
     }
 
     private void OnDisable()
     {
-        EvolutionManager.StageIncreased -= On_StageIncreased;
-        EvolutionManager.EvolutionIncreased -= On_EvolutionIncreased;
+        EvolutionManager.Instance.StageIncreased -= On_StageIncreased;
+        EvolutionManager.Instance.EvolutionIncreased -= On_EvolutionIncreased;
     }
 
     private void Update()
@@ -53,7 +48,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnNewObstacle()
     {
-        Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);
+        Instantiate(ChooseObstacleDependingOnEvolution(EvolutionManager.Instance.Evolution), _obstaclesSpawnPosition, Quaternion.identity, _parent);
         _timer = _timeBtwObstacleSpawn;
     }
 

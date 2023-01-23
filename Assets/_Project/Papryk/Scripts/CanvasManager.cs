@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -20,21 +17,21 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.ScoreChanged += On_ScoreIncreased;
-        EvolutionManager.StageIncreased += On_StageIncreased;
-        EvolutionManager.EvolutionIncreased += On_EvolutionIncreased;
+        GameManager.Instance.ScoreChanged += On_ScoreIncreased;
+        EvolutionManager.Instance.StageIncreased += On_StageIncreased;
+        EvolutionManager.Instance.EvolutionIncreased += On_EvolutionIncreased;
     }
 
     private void OnDisable()
     {
-        GameManager.ScoreChanged -= On_ScoreIncreased;
-        EvolutionManager.StageIncreased -= On_StageIncreased;
-        EvolutionManager.EvolutionIncreased -= On_EvolutionIncreased;
+        GameManager.Instance.ScoreChanged -= On_ScoreIncreased;
+        EvolutionManager.Instance.StageIncreased -= On_StageIncreased;
+        EvolutionManager.Instance.EvolutionIncreased -= On_EvolutionIncreased;
     }
 
     private void On_ScoreIncreased()
     {
-        float currentScore = GameManager.Score;
+        float currentScore = GameManager.Instance.Score;
         _scoreText.text = currentScore.ToString();
         _deathScreenScore.text = $"YOUR SCORE: {currentScore.ToString()}";
         var sequence = DOTween.Sequence()
@@ -45,10 +42,10 @@ public class CanvasManager : MonoBehaviour
 
     private void On_StageIncreased()
     {
-        _stageText.text = $"STAGE: {EvolutionManager.Stage}";
+        _stageText.text = $"STAGE: {EvolutionManager.Instance.Stage}";
     }
     private void On_EvolutionIncreased()
     {
-        _evolutionText.text = $"EVOLUTION: {EvolutionManager.Evolution}";
+        _evolutionText.text = $"EVOLUTION: {EvolutionManager.Instance.Evolution}";
     }
 }
