@@ -83,7 +83,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (_timeBtwObstacleSpawn <= _minTimeBtwObstacleSpawn) return;
         
         
-        _timeBtwObstacleSpawn -= _timeBtwObstacleSpawn * 0.25f;
+        _timeBtwObstacleSpawn -= _timeBtwObstacleSpawn * 0.15f;
     }
 
     private void On_EvolutionIncreased()

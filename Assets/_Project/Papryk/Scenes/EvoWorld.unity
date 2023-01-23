@@ -1090,7 +1090,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _evolution0Obstacles:
   - {fileID: 1980867804552581020, guid: b8e55036109eb334f89ef031f72797ac, type: 3}
-  - {fileID: 1968232566420897926, guid: 304c726fba544864ba85dec5270ec38a, type: 3}
   _evolution1Obstacles:
   - {fileID: 1968232566420897926, guid: 304c726fba544864ba85dec5270ec38a, type: 3}
   - {fileID: 4409801513866388807, guid: de0f8a9d76a470946849c1fe46b97c6d, type: 3}
@@ -1105,8 +1104,8 @@ MonoBehaviour:
   - {fileID: 3785484047561117710, guid: 9e95591b5f6a427438f1de66e6a645bc, type: 3}
   - {fileID: 2446594901260704666, guid: 61b84a1ce090bf049bbe9ec09efecc10, type: 3}
   - {fileID: 1884749619959190956, guid: cd48fe1571738c8459a6c7e3fd3dcd18, type: 3}
-  _startingTimeBtwObstacleSpawn: 5
-  _minTimeBtwObstacleSpawn: 0
+  _startingTimeBtwObstacleSpawn: 3
+  _minTimeBtwObstacleSpawn: 1.5
   _spawnTransform: {fileID: 1445891593}
   _parent: {fileID: 1760499194}
 --- !u!1 &471358950
