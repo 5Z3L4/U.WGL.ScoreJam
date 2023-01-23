@@ -13,11 +13,12 @@ public class EvolutionManager : MonoBehaviour
     [SerializeField] private List<int> _evolutionsOnStageNumbers;
     private float _timer;
     private bool _canEvolve = true;
-    private int _numberOfEvolutions;
+    private int _numberOfPossibleEvolutions;
 
     private void Start()
     {
-        _numberOfEvolutions = _evolutionsOnStageNumbers.Count - 1;
+        _numberOfPossibleEvolutions = _evolutionsOnStageNumbers.Count;
+        _timer = _stageLength;
     }
 
     private void Update()
@@ -34,23 +35,13 @@ public class EvolutionManager : MonoBehaviour
     {
         Stage++;
         StageIncreased?.Invoke();
+        if (_numberOfPossibleEvolutions <= 0) return;
         
-        if (_canEvolve && Stage == _evolutionsOnStageNumbers[Evolution])
+        if (Stage == _evolutionsOnStageNumbers[Evolution])
         {
             Evolution++;
-            print(Evolution);
             EvolutionIncreased?.Invoke();
-            if (_canEvolve)
-            {
-                if (_numberOfEvolutions > 0)
-                {
-                    _numberOfEvolutions--;
-                }
-                else
-                {
-                    _canEvolve = false;
-                }
-            }
+            _numberOfPossibleEvolutions--;
         }
     }
 }

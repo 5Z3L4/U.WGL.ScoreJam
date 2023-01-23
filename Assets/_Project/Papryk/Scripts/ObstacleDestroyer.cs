@@ -6,9 +6,9 @@ public class ObstacleDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.CompareTag("Destroy"))
+        if (coll.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            Destroy(coll.gameObject);
         }
     }
 }
