@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvolutionManager : Singleton<EvolutionManager>
+public class EvolutionManager : MonoBehaviour
 {
-    public int Stage = 0;
-    public int Evolution = 0;
-    public event Action StageIncreased;
-    public event Action EvolutionIncreased;
+    public static int Stage = 0;
+    public static int Evolution = 0;
+    public static event Action StageIncreased;
+    public static event Action EvolutionIncreased;
     [SerializeField] private float _stageLength;
     [SerializeField] private List<int> _evolutionsOnStageNumbers;
     private float _timer;
@@ -16,6 +16,8 @@ public class EvolutionManager : Singleton<EvolutionManager>
 
     private void Start()
     {
+        Stage = 0;
+        Evolution = 0;
         _numberOfPossibleEvolutions = _evolutionsOnStageNumbers.Count;
         _timer = _stageLength;
     }
