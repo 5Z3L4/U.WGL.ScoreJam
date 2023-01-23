@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Death : MonoBehaviour
 {
+    public bool IsDead;
+
     [SerializeField] private GameObject _deathCanvas;
     [SerializeField] private GameObject _leftPanel;
     [SerializeField] private Leaderboard _lb;
@@ -22,6 +24,7 @@ public class Death : MonoBehaviour
     {
         if (col.CompareTag("Finish"))
         {
+            IsDead = true;
             _as.PlayOneShot(_deathSound, 1f);
             _lb.SendHighScore(GameManager.Score);
             _deathCanvas.SetActive(true);

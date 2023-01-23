@@ -14,6 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnTransform;
     [SerializeField] private Transform _parent;
     [SerializeField] private AudioClip _spawnSound;
+    [SerializeField] private Death _death;
     private Vector3 _obstaclesSpawnPosition;
     private float _timeBtwObstacleSpawn;
     private float _timer;
@@ -49,7 +50,7 @@ public class ObstacleSpawner : MonoBehaviour
     private void Update()
     {
         _timer -= Time.deltaTime;
-        if (_timer <= 0)
+        if (_timer <= 0 && !_death.IsDead)
         {
             SpawnNewObstacle();
             _as.PlayOneShot(_spawnSound, 1f);
