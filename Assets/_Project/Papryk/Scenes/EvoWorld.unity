@@ -3163,6 +3163,7 @@ MonoBehaviour:
   _pauseMenu: {fileID: 835177243}
   _leftPanel: {fileID: 688335318}
   _particles: {fileID: 1000854805}
+  _leaderboard: {fileID: 979015119}
 --- !u!114 &991871881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10558,7 +10559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d31bbe24779a0848ab88e0caaf82854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gm: {fileID: 85779321}
   _leaderboardInfo: {fileID: 979015119}
   _rankObject: {fileID: 6089678198239304013, guid: 28b6c6154d696d746a28393cb8ffe0f2, type: 3}
   _parent: {fileID: 851443795}

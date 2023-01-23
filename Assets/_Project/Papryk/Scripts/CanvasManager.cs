@@ -10,6 +10,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _leftPanel;
     [SerializeField] private ParticleSystem _particles;
+    [SerializeField] private Leaderboard _leaderboard;
 
     private void OnEnable()
     {
@@ -24,15 +25,23 @@ public class CanvasManager : MonoBehaviour
     private void On_ScoreIncreased()
     {
         float currentScore = GameManager.Score;
-        _particles.Play();
         _scoreText.text = currentScore.ToString();
-        _deathScreenScore.text = $"YOUR SCORE: {currentScore.ToString()}";
+
+        if (currentScore > (float)(_leaderboard.UserBestScore.Score))
+        {
+            _deathScreenScore.text = $"NEW RECORD: {currentScore.ToString()}";
+        }
+        else
+        {
+            _deathScreenScore.text = $"YOUR SCORE: {currentScore.ToString()}";
+        }
+
         var sequence = DOTween.Sequence()
             .Append(_scoreText.transform.DOScale(new Vector3(1 + 0.2f, 1 + 0.2f, 1 + 0.2f), .1f))
             .Append(_scoreText.transform.DOScale(1, .1f));
         sequence.Play();
     }
-    
+
 
     public void LoadMainPage()
     {
