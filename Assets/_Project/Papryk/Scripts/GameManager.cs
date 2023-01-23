@@ -1,9 +1,15 @@
 using System;
+using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
-    public event Action ScoreChanged;
-    public int Score;
+    public static event Action ScoreChanged;
+    public static int Score;
+
+    private void Start()
+    {
+        Score = 0;
+    }
 
     public void ResetScore()
     {

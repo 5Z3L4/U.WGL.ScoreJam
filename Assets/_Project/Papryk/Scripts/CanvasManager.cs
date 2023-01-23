@@ -17,21 +17,21 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.ScoreChanged += On_ScoreIncreased;
-        EvolutionManager.Instance.StageIncreased += On_StageIncreased;
-        EvolutionManager.Instance.EvolutionIncreased += On_EvolutionIncreased;
+        GameManager.ScoreChanged += On_ScoreIncreased;
+        EvolutionManager.StageIncreased += On_StageIncreased;
+        EvolutionManager.EvolutionIncreased += On_EvolutionIncreased;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.ScoreChanged -= On_ScoreIncreased;
-        EvolutionManager.Instance.StageIncreased -= On_StageIncreased;
-        EvolutionManager.Instance.EvolutionIncreased -= On_EvolutionIncreased;
+        GameManager.ScoreChanged -= On_ScoreIncreased;
+        EvolutionManager.StageIncreased -= On_StageIncreased;
+        EvolutionManager.EvolutionIncreased -= On_EvolutionIncreased;
     }
 
     private void On_ScoreIncreased()
     {
-        float currentScore = GameManager.Instance.Score;
+        float currentScore = GameManager.Score;
         _scoreText.text = currentScore.ToString();
         _deathScreenScore.text = $"YOUR SCORE: {currentScore.ToString()}";
         var sequence = DOTween.Sequence()
@@ -42,10 +42,10 @@ public class CanvasManager : MonoBehaviour
 
     private void On_StageIncreased()
     {
-        _stageText.text = $"STAGE: {EvolutionManager.Instance.Stage}";
+        _stageText.text = $"STAGE: {EvolutionManager.Stage}";
     }
     private void On_EvolutionIncreased()
     {
-        _evolutionText.text = $"EVOLUTION: {EvolutionManager.Instance.Evolution}";
+        _evolutionText.text = $"EVOLUTION: {EvolutionManager.Evolution}";
     }
 }
