@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using LootLocker.Requests;
 using TMPro;
 using UnityEngine;
@@ -9,10 +10,12 @@ using UnityEngine.SceneManagement;
 public class LoginManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _nicknameText;
+    [SerializeField] private TMP_Text _changedNicknameText;
     [SerializeField] private GameObject _nameSetPanel;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        StartGuestSession();
     }
 
     public void StartGuestSession()
@@ -36,6 +39,27 @@ public class LoginManager : MonoBehaviour
         });
     }
 
+    public void ChangePlayerName()
+    {
+        PlayerPrefs.SetString("NicknameSet", "true");
+        LootLockerSDKManager.SetPlayerName(_changedNicknameText.text, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Name set");
+            }
+            else
+            {
+                Debug.Log("Error");
+            }
+        });
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("PauseMenu");
+    }
+
     private IEnumerator LoginRoutine()
     {
         bool done = false;
@@ -47,7 +71,8 @@ public class LoginManager : MonoBehaviour
                 done = true;
                 if (PlayerPrefs.GetString("NicknameSet") is not null && PlayerPrefs.GetString("NicknameSet") == "true")
                 {
-                    SceneManager.LoadScene("EvoWorld");
+                    //SceneManager.LoadScene("EvoWorld");
+                    return;
                 }
                 else
                 {

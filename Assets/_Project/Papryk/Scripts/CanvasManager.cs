@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private TMP_Text _evolutionText;
     [SerializeField] private TMP_Text _deathScreenScore;
     private Sequence _scoreTextSequence;
+    [SerializeField] private GameObject _pauseMenu;
 
     private void Start()
     {
@@ -47,5 +49,15 @@ public class CanvasManager : MonoBehaviour
     private void On_EvolutionIncreased()
     {
         _evolutionText.text = $"EVOLUTION: {EvolutionManager.Evolution}";
+    }
+
+    public void LoadMainPage()
+    {
+        SceneManager.LoadScene("Login");
+    }
+
+    public void LoadPauseMenu()
+    {
+        _pauseMenu.SetActive(true);
     }
 }
