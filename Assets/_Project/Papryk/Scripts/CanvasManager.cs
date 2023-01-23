@@ -11,6 +11,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private TMP_Text _deathScreenScore;
     private Sequence _scoreTextSequence;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _leftPanel;
 
     private void Start()
     {
@@ -59,5 +60,6 @@ public class CanvasManager : MonoBehaviour
     public void LoadPauseMenu()
     {
         _pauseMenu.SetActive(true);
+        _leftPanel.SetActive(false);
     }
 }
