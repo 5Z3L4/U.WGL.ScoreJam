@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1571372932714477329}
   - component: {fileID: 1571372932714477330}
   - component: {fileID: 1571372932714477331}
+  - component: {fileID: 7172660569096984578}
+  - component: {fileID: 8991791829369134065}
   m_Layer: 0
   m_Name: Tooth
   m_TagString: Finish
@@ -111,6 +113,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46197277, y: 0.56441545}
   m_EdgeRadius: 0
+--- !u!95 &7172660569096984578
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571372932714477328}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4088e37deede10468715b4a2e115d3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8991791829369134065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571372932714477328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595246d0816736848839de6e66a60e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 7172660569096984578}
 --- !u!1 &4409801513866388807
 GameObject:
   m_ObjectHideFlags: 0

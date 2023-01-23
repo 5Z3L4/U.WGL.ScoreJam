@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3785484046545492885}
   - component: {fileID: 3785484046545492875}
   - component: {fileID: 3785484046545492874}
+  - component: {fileID: 2016166786726643498}
+  - component: {fileID: 3418141687165669903}
   m_Layer: 0
   m_Name: Tooth
   m_TagString: Finish
@@ -111,6 +113,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46197277, y: 0.56441545}
   m_EdgeRadius: 0
+--- !u!95 &2016166786726643498
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484046545492884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e3773f2778e8c44395349cd7070f671, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3418141687165669903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484046545492884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595246d0816736848839de6e66a60e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 2016166786726643498}
 --- !u!1 &3785484046666562906
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +157,8 @@ GameObject:
   - component: {fileID: 3785484046666562907}
   - component: {fileID: 3785484046666562905}
   - component: {fileID: 3785484046666562904}
+  - component: {fileID: 4557637042249441788}
+  - component: {fileID: 9032059304474648381}
   m_Layer: 0
   m_Name: Tooth
   m_TagString: Finish
@@ -222,6 +259,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46197277, y: 0.56441545}
   m_EdgeRadius: 0
+--- !u!114 &4557637042249441788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484046666562906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595246d0816736848839de6e66a60e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 9032059304474648381}
+--- !u!95 &9032059304474648381
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484046666562906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef4c0bebd42198649968798d5f2617ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3785484047561117710
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +354,8 @@ GameObject:
   - component: {fileID: 3785484047765048385}
   - component: {fileID: 3785484047765048391}
   - component: {fileID: 3785484047765048390}
+  - component: {fileID: 4495379332393096039}
+  - component: {fileID: 1400572677046590735}
   m_Layer: 0
   m_Name: Tooth
   m_TagString: Finish
@@ -384,3 +456,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46197277, y: 0.56441545}
   m_EdgeRadius: 0
+--- !u!114 &4495379332393096039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484047765048384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595246d0816736848839de6e66a60e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 1400572677046590735}
+--- !u!95 &1400572677046590735
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785484047765048384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72a2dab16d343a04c866b3880c4fb431, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

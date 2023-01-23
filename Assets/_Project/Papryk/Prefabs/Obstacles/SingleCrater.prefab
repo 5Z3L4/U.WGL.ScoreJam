@@ -60,6 +60,8 @@ GameObject:
   - component: {fileID: 8300795743219032364}
   - component: {fileID: 8300795743219032365}
   - component: {fileID: 8300795743219032338}
+  - component: {fileID: 6469274412236646116}
+  - component: {fileID: 1929104854814093583}
   m_Layer: 0
   m_Name: Crater
   m_TagString: Finish
@@ -76,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 8300795743219032367}
   m_LocalRotation: {x: -0, y: -0, z: 0.72704965, w: 0.686585}
   m_LocalPosition: {x: -0.024400085, y: -0.0014, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.049999997, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1884749619959190957}
@@ -160,3 +162,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &6469274412236646116
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300795743219032367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed160a28849f1a142a07d477a20b265a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1929104854814093583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300795743219032367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595246d0816736848839de6e66a60e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 6469274412236646116}
