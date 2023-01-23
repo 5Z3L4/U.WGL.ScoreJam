@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour
         Score = 0;
     }
 
-    public void IncreaseScore()
+    public void IncreaseScore(int score = 1)
     {
-        Score += 1;
+        Score += score;
         ScoreChanged?.Invoke();
     }
 }

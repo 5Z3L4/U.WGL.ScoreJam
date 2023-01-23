@@ -19,7 +19,7 @@ public class CollectFood : MonoBehaviour
 
         if (_playerJump.IsSmashing)
         {
-            _gm.IncreaseScore();
+            _gm.IncreaseScore(10);
             _as.PlayOneShot(_collectSound, 1f);
             Destroy(collision.gameObject);
         }
