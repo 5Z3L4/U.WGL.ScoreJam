@@ -7,6 +7,7 @@ using UnityEngine;
 public class VisualChangesOnEvolution : MonoBehaviour
 {
     [SerializeField] List<SpriteRenderer> _sprites;
+    [SerializeField] private GameObject _smokeParticlesBlow;
     private int _currentIndex;
 
     private void Start()
@@ -34,6 +35,10 @@ public class VisualChangesOnEvolution : MonoBehaviour
 
     private void EnableSprite(int index)
     {
+        if (index == 2)
+        {
+            _smokeParticlesBlow.SetActive(true);
+        }
         _sprites[index].DOColor(Color.white, 0.5f);
     }
     
