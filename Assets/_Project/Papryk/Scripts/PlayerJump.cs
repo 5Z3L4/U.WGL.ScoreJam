@@ -20,6 +20,9 @@ public class PlayerJump : MonoBehaviour
     
     private Rigidbody2D _rb;
     [SerializeField] private GameManager _gm;
+    [SerializeField] private Animator _anim;
+    private static readonly int IsJumping = Animator.StringToHash("isJumping");
+    private static readonly int Smashing = Animator.StringToHash("isSmashing");
 
     public bool IsSmashing { get; private set; }
 
@@ -62,10 +65,20 @@ public class PlayerJump : MonoBehaviour
         if (_rb.velocity.y < 0)
         {
             SetFallForce();
+            _anim.SetBool(IsJumping, false);
+            _anim.SetBool(Smashing, true);
         }
         else if (_rb.velocity.y > 0)
         {
             ReduceJumpHeight();
+            _anim.SetBool(IsJumping, true);
+            _anim.SetBool(Smashing, false);
+        }
+
+        if (_rb.velocity.y == 0 )
+        {
+            _anim.SetBool(IsJumping, false);
+            _anim.SetBool(Smashing, false);
         }
     }
 

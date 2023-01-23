@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    [SerializeField] private List<ScoreData> _top10Scores = new List<ScoreData>();
-    [SerializeField] private ScoreData _userBestScore = new ScoreData();
+    [field: SerializeField] public List<ScoreData> Top10Scores { get; private set; }
+    [field: SerializeField] public ScoreData UserBestScore { get; private set; }
     private int _leaderboardId = 10814;
 
+
+    
     private void Start()
     {
         GetTop10Scores();
@@ -71,7 +73,7 @@ public class Leaderboard : MonoBehaviour
                     });
                 }
 
-                _top10Scores = tempPlayers;
+                Top10Scores = tempPlayers;
                 done = true;
             }
             else
@@ -94,7 +96,7 @@ public class Leaderboard : MonoBehaviour
 
                 if (members[0] is not null)
                 {
-                    _userBestScore = new ScoreData
+                    UserBestScore = new ScoreData
                     {
                         Rank = members[0].rank,
                         Score = members[0].score,
@@ -103,7 +105,7 @@ public class Leaderboard : MonoBehaviour
                 }
                 else
                 {
-                    _userBestScore = new ScoreData
+                    UserBestScore = new ScoreData
                     {
                         Rank = 0,
                         Score = 0,
