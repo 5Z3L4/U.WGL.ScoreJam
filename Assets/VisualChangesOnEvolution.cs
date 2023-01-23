@@ -11,7 +11,7 @@ public class VisualChangesOnEvolution : MonoBehaviour
 
     private void Start()
     {
-        _currentIndex = EvolutionManager.Evolution;
+        _currentIndex = 0;
     }
 
     private void OnEnable()
@@ -26,6 +26,8 @@ public class VisualChangesOnEvolution : MonoBehaviour
 
     private void On_EvolutionIncreased()
     {
+        if (_currentIndex > 3) return;
+        
         EnableSprite(_currentIndex);
         _currentIndex++;
     }
