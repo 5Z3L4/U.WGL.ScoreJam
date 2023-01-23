@@ -6,6 +6,7 @@ public class PlayerJump : MonoBehaviour
 {
     private AudioSource _as;
     [SerializeField] private AudioClip _jumpSound;
+    [SerializeField] private ParticleSystem _jumpParticles;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpVelocity;
     [SerializeField] private float _fallMultiplier = 2.5f;
@@ -122,6 +123,7 @@ public class PlayerJump : MonoBehaviour
     private void Jump()
     {
         _as.PlayOneShot(_jumpSound, 1f);
+        _jumpParticles.Play();
         _rb.velocity = Vector2.up * _jumpVelocity;
         _isGrounded = false;
         _isRewarded = false;
