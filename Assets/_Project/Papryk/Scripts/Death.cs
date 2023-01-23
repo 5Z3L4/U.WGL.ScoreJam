@@ -7,6 +7,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] private GameObject _deathCanvas;
+    [SerializeField] private GameObject _leftPanel;
     [SerializeField] private Leaderboard _lb;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -15,6 +16,7 @@ public class Death : MonoBehaviour
         {
             _lb.SendHighScore(GameManager.Score);
             _deathCanvas.SetActive(true);
+            _leftPanel.SetActive(false);
             Destroy(gameObject);
         }
     }
