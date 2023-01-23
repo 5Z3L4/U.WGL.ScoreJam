@@ -13,7 +13,7 @@ public class Death : MonoBehaviour
     {
         if (col.CompareTag("Finish"))
         {
-            _lb.SendHighScore(GameManager.Score);
+            _lb.SendHighScore(GameManager.Instance.Score);
             _deathCanvas.SetActive(true);
             Destroy(gameObject);
         }
