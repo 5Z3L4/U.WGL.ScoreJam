@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbc5f4ddcdabc04484aa27e4d44cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageLength: 1
+  _stageLength: 3.5
   _evolutionsOnStageNumbers: 050000000a0000000f000000
 --- !u!4 &910479431
 Transform:
